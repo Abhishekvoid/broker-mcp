@@ -150,6 +150,34 @@ python -m broker.mcp_server   # speaks MCP JSON-RPC over stdio
 
 ---
 
+## Demo
+
+The full loop, driven from Claude Desktop calling Broker's `github_create_issue` tool.
+
+**Allow path** — Claude invokes the tool; Broker evaluates policy, mints a scoped
+capability, makes the call, and returns the public capability object (issue #5,
+`CAP-6AEB2D42`, scope `issues:write`, TTL 3598s):
+
+![Claude Desktop calling the tool and returning the issue URL and capability](docs/demo-01-claude-response.png)
+
+The resulting issue on GitHub, opened by the App installation — no personal token
+involved:
+
+![GitHub issue "issued via MCP" opened by broker-mcp[bot]](docs/demo-02-github-issue.png)
+
+**Deny path** — asked to act on a repo that isn't on the allowlist, Broker refuses.
+The agent is told "no" at runtime by policy, and **no credential is ever minted**:
+
+![Claude explaining Broker denied the call because the repo is not on the allowlist](docs/demo-04-denied.png)
+
+**The audit trail** — `capability.used → success` for the allowed call, followed by
+`policy.decision allowed:false` for the denials, with no `capability.minted` between
+them:
+
+![audit.jsonl showing capability.used success and two allowed:false denials](docs/demo-03-audit.png)
+
+---
+
 ## Project layout
 
 | File | Responsibility |
