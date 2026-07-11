@@ -2,7 +2,10 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
-AUDIT_LOG = Path("audit.jsonl")
+# Anchor to the repo root (parent of the broker package) so the audit trail
+# always lands here regardless of the process's working directory — MCP hosts
+# may launch the server from an arbitrary cwd.
+AUDIT_LOG = Path(__file__).resolve().parent.parent / "audit.jsonl"
 
 
 def record(event: dict) -> None:

@@ -5,6 +5,7 @@
       "args": ["-m", "broker.mcp_server"],
       "cwd": "C:\\Users\\you\\broker-mcp",
       "env": {
+        "PYTHONPATH": "C:\\Users\\you\\broker-mcp",
         "BROKER_GITHUB_APP_ID": "000000",
         "BROKER_GITHUB_INSTALLATION_ID": "00000000",
         "BROKER_GITHUB_PEM_PATH": "C:\\Users\\you\\.broker-secrets\\your-app.private-key.pem"
