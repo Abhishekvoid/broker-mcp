@@ -154,7 +154,11 @@ python -m broker.mcp_server   # speaks MCP JSON-RPC over stdio
 
 The full loop, driven from Claude Desktop calling Broker's `github_create_issue` tool.
 
-![End-to-end demo: Claude Desktop calls Broker, which evaluates policy, mints a scoped capability, and opens a GitHub issue](docs/demo.gif)
+Running `examples/create_issue.py` in the terminal — the allowed call succeeds and
+is audited, then two seconds later the denied call is refused by policy and audited
+as `allowed:false`:
+
+![Terminal run of create_issue.py: an allowed capability.used success followed 2s later by a policy denial in the audit log](docs/demo.gif)
 
 **Allow path** — Claude invokes the tool; Broker evaluates policy, mints a scoped
 capability, makes the call, and returns the public capability object (issue #5,
