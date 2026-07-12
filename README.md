@@ -26,7 +26,7 @@ demand and governed by policy.
 
 ## What Broker does
 
-📐 **[Full system design diagram (Excalidraw)](https://excalidraw.com/#json=S299OmDiIShOz2-xLuCjL,PvaCrY04PNMcfagvbj7VjA)**
+<img width="1385" height="1157" alt="Untitled-2026-06-02-2202 excalidraw(3)" src="https://github.com/user-attachments/assets/27de5b35-e161-4b71-aaad-244eafae5a42" />
 
 ```
 agent asks: "create issue in Abhishekvoid/broker-mcp"
